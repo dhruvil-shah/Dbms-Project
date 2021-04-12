@@ -83,7 +83,7 @@ include './configure.php';
       <td><?php echo $res['type']?></td>
       <td><?php echo $res['rating']?></td>
       <td><a href=<?php echo $res['url']?> target="_blank">open</a></td>
-      <td><a href=""><i class='material-icons'>edit</i></a></td>
+      <td><a href="update.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>edit</i></a></td>
       <td><a href="delete.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>delete</i></a></td> 
 </tr>
 <?php
