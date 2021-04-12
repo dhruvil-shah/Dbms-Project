@@ -1,0 +1,21 @@
+h3{
+    padding: 13px;
+}
+#sel{
+    padding: 3px;
+    margin-left: 130px;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 4px;
+}
+button{
+    padding: 3px;
+    width: 130px;
+    margin-left: 300px;
+    display: block;
+    text-align: center;
+}

@@ -98,15 +98,3 @@ if(isset($_POST['submit']))
 
 
 
-
-<!-- <select name='opt[]' multiple>
-           //<?php
-           //for ($i=0; $i <count($total) ; $i++) { 
-               //if(str_contains($type,$total[$i]))
-               //echo "<option value='$total[$i]' selected>$total[$i]</option>";
-               //else
-              // echo "<option value='$total[$i]'> $total[$i] </option>";
-               
-            //}
-            //?>
-        </select> -->

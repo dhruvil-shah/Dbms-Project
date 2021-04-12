@@ -4,6 +4,8 @@
 <html>
 <head><title>task 3</title></head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="insert.css">
+<link rel="stylesheet" href="show.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
@@ -68,9 +70,8 @@
 <?php
 
 include './configure.php';
-// if(isset($_GET['submit1']))
-// {
-  
+if(!isset($_POST['submit1']))
+{
   $query="select * from prob";
   $query=mysqli_query($con,$query);
   $count=1;
@@ -88,9 +89,76 @@ include './configure.php';
 </tr>
 <?php
 $count++;
+  }
 }
-// }
+if(isset($_GET['submit'])){
+  $query="select * from prob where ";
+  if(isset($_GET['opt'])){
+    $t=$_GET['opt'];
+    foreach($t as $val){
+      $query=$query."type like '%$val%' and ";
+    }
+    $query=substr($query, 0, -4);
+    
+  }
+  if($_GET['rating']!=0){
+    if(isset($_GET['opt']))
+    $query=$query." and rating=".$_GET['rating'];
+    else
+    $query=$query."rating=".$_GET['rating'];
+
+  }
+  $query=$query.';';
+  $query=mysqli_query($con,$query);
+  $count=1;
+  while($res= mysqli_fetch_array($query))
+  {
+     ?>
+<tr>
+      <td><?php echo $count?></td>
+      <td><?php echo $res['p_name']?></td>
+      <td><?php echo $res['type']?></td>
+      <td><?php echo $res['rating']?></td>
+      <td><a href=<?php echo $res['url']?> target="_blank">open</a></td>
+      <td><a href="update.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>edit</i></a></td>
+      <td><a href="delete.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>delete</i></a></td> 
+</tr>
+<?php
+$count++;
+  }
+}
 ?>
-</table>
+</table>   
+<form method="GET" action="show.php">
+  <!-- <input type="text" placeholder='Enter Problem name'name="p_name" id='sel' size="15"/> <br>    -->
+  <select name='opt[]' id='sel' multiple>
+    <option value="Array" >array</option>
+    <option value="String" >String</option>
+    <option value="LinkedList" >Linked List</option>
+    <option value="Stack and Queue" >Stack and Queue</option>
+    <option value="Tree and BST" >Tree and BST</option>
+    <option value="Heap" >Heap</option>
+    <option value="Recursion" >Recursion</option>
+    <option value="Hashing" >Hashing</option>
+    <option value="Graph" >Graph</option>
+<option value="Greedy" >Greedy</option>
+<option value="Dynamic Programming" >Dynamic Programming</option>
+<option value="Divide and Conquer">Divide and Conquer</option>
+<option value="Backtracking" >Backtracking</option>
+<option value="Bit Magic" >Bit Magic</option>
+</select>   
+<br>
+<select name='rating' id='sel'>  
+  <option value="0">-</option>    
+  <option value="1">1</option>    
+  <option value="2">2</option>  
+  <option value="3">3</option>  
+  <option value="4">4</option>  
+  <option value="5">5</option>    
+</select>
+  <button class="btn" type="submit" name="submit" value="submit">Show</button>
+  <br>
+  <button type='reset'>Reset</button> 
+</form>     
 </body>
 </html>
