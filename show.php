@@ -8,49 +8,6 @@
 <link rel="stylesheet" href="show.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<style>
-    body 
-    {
-        background: linear-gradient(to top, #003366 20%, #ffffcc 100%);
-        height: 100vh;
-    }
-    table { 
-    padding: 13px;
-    border: 2px solid black;
-    margin: 30px auto; 
-    width:1150px;
-    border-radius: 13px;
-    background: linear-gradient(to top left, #33ccff 20%, #ff6699 100%);
-    font-size: 20px;
-    }
-    th, td {
-    text-align: center;
-    padding: 3px;
-    }
-    .topnav {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-</style>
 <body>
 <div class="topnav">
   <a  href="home.php" target="bottom">Home</a>
@@ -91,45 +48,9 @@ if(!isset($_POST['submit1']))
 $count++;
   }
 }
-if(isset($_GET['submit'])){
-  $query="select * from prob where ";
-  if(isset($_GET['opt'])){
-    $t=$_GET['opt'];
-    foreach($t as $val){
-      $query=$query."type like '%$val%' and ";
-    }
-    $query=substr($query, 0, -4);
-    
-  }
-  if($_GET['rating']!=0){
-    if(isset($_GET['opt']))
-    $query=$query." and rating=".$_GET['rating'];
-    else
-    $query=$query."rating=".$_GET['rating'];
-
-  }
-  $query=$query.';';
-  $query=mysqli_query($con,$query);
-  $count=1;
-  while($res= mysqli_fetch_array($query))
-  {
-     ?>
-<tr>
-      <td><?php echo $count?></td>
-      <td><?php echo $res['p_name']?></td>
-      <td><?php echo $res['type']?></td>
-      <td><?php echo $res['rating']?></td>
-      <td><a href=<?php echo $res['url']?> target="_blank">open</a></td>
-      <td><a href="update.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>edit</i></a></td>
-      <td><a href="delete.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>delete</i></a></td> 
-</tr>
-<?php
-$count++;
-  }
-}
 ?>
 </table>   
-<form method="GET" action="show.php">
+<form method="GET" action="show1.php">
   <!-- <input type="text" placeholder='Enter Problem name'name="p_name" id='sel' size="15"/> <br>    -->
   <select name='opt[]' id='sel' multiple>
     <option value="Array" >array</option>

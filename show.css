@@ -19,3 +19,44 @@ button{
     display: block;
     text-align: center;
 }
+body 
+{
+    background: linear-gradient(to top, #003366 20%, #ffffcc 100%);
+    height: 100vh;
+}
+table { 
+padding: 13px;
+border: 2px solid black;
+margin: 30px auto; 
+width:1150px;
+border-radius: 13px;
+background: linear-gradient(to top left, #33ccff 20%, #ff6699 100%);
+font-size: 20px;
+}
+th, td {
+text-align: center;
+padding: 3px;
+}
+.topnav {
+overflow: hidden;
+background-color: #333;
+}
+
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.topnav a:hover {
+background-color: #ddd;
+color: black;
+}
+
+.topnav a.active {
+background-color: #4CAF50;
+color: white;
+}
