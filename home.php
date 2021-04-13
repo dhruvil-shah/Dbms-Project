@@ -1,11 +1,38 @@
-
-<!DOCTYPE html>
-
+<!DOCTYPE html
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>home page</title>
     <link rel="stylesheet" href="home.css">
+    <style>
+  .image
+  {
+  
+  width: 160px;
+  height: 160px;
+  display: block;
+  margin: 13px auto;
+}
+input{
+  width: 250px;
+  height: 30px;
+  border-radius: 13px ;
+  display: block;
+  margin: 15px auto;
+  color: black;
+  font-size: 22px;
+  padding: 23px;
+  text-align: center;
+}
+#solved{
+  height: 75px; 
+  width:150px;
+  text-align: center;
+  display: block;
+  margin: 15px auto;
+  font-size: 30px;
+}
+    </style>
 </head>
 <body>
 <div class="topnav">
@@ -14,23 +41,11 @@
   <a href="show.php" target="bottom">Show</a>
   <a href="about.php" target="bottom">About Us</a>
 </div>
-<h1>DBMS INNOVATIVE ASSIGNMENT</h1>
-
-<H2> STUDENT HELPER SYSTEM</H2>
-
-<p>
-<B>IN THIS PARTICULAR STUDENT HEPLER SYSTEM, THE USER CAN ACCESS A LOTS OF VARIETY OF QUESTIONS ALL AROUND
-THE WEB, AND HAS ALSO THE ACCESS TO STORE THE QUESTIONS WHICH CAME ACROSS THEM ON THE WEB FOR FUTURE USE.</p>
-
-
-<UL>
-THE NAVIGATION BAR ABOVE CAN PERFORM ALL OF THE FEATURES AS SAID:<br><br>
-<LI>HOME PANE: THE DESCRIPTION OF ALL THE FEATURES OF THIS STUDENT HELPER SYSTEM.</LI>
-<LI>INSERT PANE: THIS PANE ALLOWS YOU TO INSERT AS MANY AS QUESTIONS YOU COME ACROSS AROUND THE WEB IN OUR DATABASE</LI>
-<LI>SHOW PANE: THIS PANE CAN BE HELPFUL WHENEVER YOU NEED TO SOLVE ANY KIND OF QUESTIONS FROM OUR HUGE DATABASE CLASSIFIED BY THEIR TOPIC AND DIFFICULTY</LI>
-<LI>ABOUT PANE: A BRIEF DESCRIPTION OF THE CREATORS OF THIS STUDENT HEPLER SYSTEM</LI>
-</UL>
-
-</B>
+<img src="person.png" class="image" alt="Profile Picture">
+<input type="text" disabled name="" value="Dhruvil" id="">
+<input type="text" disabled name="" value="Shah" id="">
+<!-- <input type="text" disabled value="2019-2023"> -->
+<input type="text" value="Nirma University"disabled>
+<input type="text"  id="solved" value="7/15"disabled>
 </body>
 </html>
