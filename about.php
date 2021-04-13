@@ -9,10 +9,10 @@
 </head>
 <body>
 <div class="topnav">
-  <a class="active" href="home.php" target="bottom">Home</a>
+  <a href="home.php" target="bottom">Home</a>
   <a href="insert.php" target="bottom">Insert</a>
   <a href="show.php" target="bottom">Show</a>
-  <a href="about.php" target="bottom">About Us</a>
+  <a href="about.php" class="active" target="bottom">About Us</a>
 </div>
 <h1>DBMS INNOVATIVE ASSIGNMENT</h1>
 

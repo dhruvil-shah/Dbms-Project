@@ -10,7 +10,11 @@ if(isset($_POST['submit']))
      $type=$type.$val.",";
   $type = rtrim($type, ", ");
   $rat=$_POST['rating'];
-  $query="insert into prob(p_name,url,type,rating) values('$p_name','$url','$type','$rat')";
+  if(isset($_POST['check']))
+  $stat=$_POST['check'];
+  else
+  $stat='off';
+  $query="insert into prob(p_name,url,type,rating,status) values('$p_name','$url','$type','$rat','$stat')";
   $res=mysqli_query($con,$query);
   if($res)
   {
@@ -34,6 +38,7 @@ Registration Page
   <a  href="home.php" target="bottom">Home</a>
   <a class="active" href="insert.php" target="bottom">Insert</a>
   <a href="show.php" target="bottom">Show</a>
+  <a href="about.php" target="bottom">About Us</a>
 </div>
 <br>  
 <br>  
@@ -77,6 +82,8 @@ Difficulty rating :
 </select>  
 <br>
 <br>  
+<label for="check">Solved:</label>
+<input name="check" type="checkbox" style="width: 15px;height: 15px;">
 <button class="btn" type="submit" name="submit" value="submit">Submit</button>
 <button type='reset'>Reset</button> 
 </form>  

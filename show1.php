@@ -21,6 +21,7 @@
 <th>URL</th>
 <th>Update</th>
 <th>Delete</th> 
+<th>Status</th> 
 </tr>
 <?php
 include './configure.php';
@@ -55,6 +56,7 @@ if(isset($_GET['submit'])){
       <td><a href=<?php echo $res['url']?> target="_blank">open</a></td>
       <td><a href="update.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>edit</i></a></td>
       <td><a href="delete.php?p_name=<?php echo $res['p_name'];?>"><i class='material-icons'>delete</i></a></td> 
+      <td><span class="material-icons-outlined"><img src="./1x/ri.png" alt="Done"></span></td> 
 </tr>
 <?php
 $count++;

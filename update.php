@@ -10,7 +10,11 @@ if(isset($_POST['submit']))
        $type=$type.$val.",";
     $type = rtrim($type, ", ");
     $rat=$_POST['rating'];
-    $query="update prob set url='$url',type='$type',rating='$rat' where p_name='$p_name' ";
+    if(isset($_POST['check']))
+    $stat=$_POST['check'];
+    else
+    $stat='off';
+    $query="update prob set url='$url',type='$type',rating='$rat',status='$stat' where p_name='$p_name' ";
     $res=mysqli_query($con,$query);
     if($res)
     echo '<script>Successfully Updated</script>';
@@ -45,6 +49,7 @@ if(isset($_POST['submit']))
                $url = $query['url'];
                $rat = $query['rating'];
                $type = $query['type'];
+               $stat=$query['status'];
                $arr = explode(",", $type, 5);
                $total = [
                    'Array', 'String', 'LinkedList', 'Stack and Queue', 'Tree and BST', 'Heap', 'Recursion', 'Hashing', 'Graph', 'Greedy', 'Dynamic Programming', 'Divide and Conquer', 'Backtracking', 'Bit Magic'
@@ -89,6 +94,13 @@ if(isset($_POST['submit']))
         </select>
         <br>
         <br>
+        <label for="check">Solved:</label>
+        <?php
+        if($stat=='on')
+        echo '<input name="check" type="checkbox" checked style="width: 15px;height: 15px;">';
+        else
+        echo '<input name="check" type="checkbox"  style="width: 15px;height: 15px;">';
+        ?>
         <button class="btn" type="submit" name="submit" value="submit">Update</button>
     </form>
     
