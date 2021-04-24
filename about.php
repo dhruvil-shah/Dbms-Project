@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <title>home page</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
 <div class="topnav">

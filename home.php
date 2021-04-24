@@ -42,10 +42,33 @@ input{
   <a href="about.php" target="bottom">About Us</a>
 </div>
 <img src="person.png" class="image" alt="Profile Picture">
-<input type="text" disabled name="" value="Dhruvil" id="">
-<input type="text" disabled name="" value="Shah" id="">
+<input type="text" disabled  id="fname">
+<input type="text" disabled   id="lname">
 <!-- <input type="text" disabled value="2019-2023"> -->
 <input type="text" value="Nirma University"disabled>
-<input type="text"  id="solved" value="7/15"disabled>
+<?php
+include './configure.php';
+$query="select * from prob";
+  $query=mysqli_query($con,$query);
+  $cn=0;
+  $cp=0;
+  while($res= mysqli_fetch_array($query))
+  {
+    if($res['status']==="on"){
+      $cp++;
+    }else
+    $cn++;
+  }
+  $c=$cn+$cp;
+echo "<input type='text'  id='solved' value='{$cp}/{$c}' disabled>";
+
+
+?>
+<script>
+  let fname=localStorage.getItem('fname');
+  let lname=localStorage.getItem('lname');
+  document.querySelector('#fname').value=fname;
+  document.querySelector('#lname').value=lname;
+</script>
 </body>
 </html>
